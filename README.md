@@ -1,3 +1,3 @@
 # color_game
 
-type the colors of the text NOT the what the text says! 
+type the colors OF the text NOT what the text says! 
