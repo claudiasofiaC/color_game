@@ -4,7 +4,7 @@ import random
 
 # list of possible colors
 colors = ['Red', 'Cyan', 'Green', 'Pink', 'Fuchsia', 'Lime', 'Orange',
-          'Yellow', 'White', 'Black', 'Purple']
+          'Yellow', 'Grey', 'Black', 'Purple']
 
 score = 0
 
@@ -45,7 +45,7 @@ def nextColor():
         label.config(fg=str(colors[1]), text=str(colors[0]))
 
         # update the score
-        scoreLabel.config(text='Score: ', str(score))
+        scoreLabel.config(text='Score: ' + str(score))
 
 # countdown timer function
 def countdown():
@@ -61,22 +61,39 @@ def countdown():
 
 # driver code
 # create a GUI window
-root = tkinter.TK()
+root = tkinter.Tk()
 
 # set the title
 root.title('Color Game')
 
 # set the size
-root.geometry('375x200')
+root.geometry('700x300')
 
 # add the instruction label
 instructions = tkinter.Label(root, text='Type the color of the words, and not the word text!',
-                             font=('Helvetica', 12))
+                             font=('Garamond', 30))
 instructions.pack()
 
 # add the score label
 scoreLabel = tkinter.Label(root, text='Press enter to start',
-                           font=('Helvetica', 12))
+                           font=('Garamond', 20))
 scoreLabel.pack()
 
-# add a time label
+# add a time left label
+timeLabel = tkinter.Label(root, text='Time Left: ' + str(timeleft),
+                          font=('Garamond', 30))
+timeLabel.pack()
+
+# add a label for displaying the colors
+label = tkinter.Label(root, font=('Garamond', 55))
+label.pack()
+
+# add a text entry box for typing in colors
+e = tkinter.Entry(root)
+
+# run the 'startGame' function when Return is pressed
+root.bind('<Return>', startGame)
+e.pack()
+
+# start the GUI
+root.mainloop()
