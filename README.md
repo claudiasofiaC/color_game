@@ -14,3 +14,5 @@ entry options are
 - yellow
 - black
 - grey
+
+![image](color_picker.png)
